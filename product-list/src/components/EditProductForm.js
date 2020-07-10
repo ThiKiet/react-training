@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React,  { useState, useEffect} from 'react'
 
 const EditProductForm = (props) => {
   const [product, setProduct] = useState(props.currentProduct)
+  useEffect(
+    () => {
+      setProduct(props.currentProduct)
+    },
+    [ props ]
+  )
   
   const handleInputChange = (event) => {
     const { name, value } = event.target
